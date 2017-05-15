@@ -208,12 +208,8 @@ MEDIA_URL = '/m/'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME', ''),
-        'USER': os.environ.get('DB_USER', ''),
-        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
-        'HOST': os.environ.get('DB_HOST', ''),
-        'PORT': os.environ.get('DB_PORT', ''),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(ROOT_DIR, 'db.sqlite3'),
     }
 }
 
@@ -247,3 +243,9 @@ REST_FRAMEWORK = {
 EXPLARA_API_TOKEN = "shjbalkfbdskjlbdskljbdskaljfb"
 
 QR_CODES_DIR = ROOT_DIR + '/qr_files'
+
+
+BROKER_URL = os.environ.get("BROKER_URL", "redis://redis:6379/0")
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND", 'redis://redis:6379/0')
+
+ACCOUNT_DEFAULT_HTTP_PROTOCOL='http'
