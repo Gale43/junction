@@ -10,13 +10,13 @@ services:
 
   web:
     build: .
-    command: tail -f /dev/null
+    command: "uwsgi --socket :8000 --wsgi-file wsgi.py --chdir /srv/"
+    ports:
+      - "127.0.0.1:8099:8000"
     volumes:
      - .:/srv/
     links:
      - redis:redis
-    ports:
-     - "8000:8000"
     privileged: true
 
   celery:
@@ -32,3 +32,8 @@ services:
 volumes:
   redis-data:
     driver: local
+
+networks:
+  default:
+    external:
+      name: docker-develop-network
