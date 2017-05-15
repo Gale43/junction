@@ -80,9 +80,9 @@ class ProposalForm(forms.Form):
     description = forms.CharField(widget=PagedownWidget(show_preview=True),
                                   help_text=("Describe your proposal with clear objective in simple sentence."
                                              " Keep it short and simple."))
-    target_audience = forms.ChoiceField(
-        choices=ProposalTargetAudience.CHOICES,
-        widget=forms.Select(attrs={'class': 'dropdown'}))
+    # target_audience = forms.ChoiceField(
+    #     choices=ProposalTargetAudience.CHOICES,
+    #     widget=forms.Select(attrs={'class': 'dropdown'}))
     status = forms.ChoiceField(
         widget=forms.Select(attrs={'class': 'dropdown'}),
         choices=ProposalStatus.CHOICES,
@@ -94,18 +94,18 @@ class ProposalForm(forms.Form):
         widget=forms.Select(attrs={'class': 'dropdown'}))
 
     # Additional Content
-    prerequisites = forms.CharField(
-        widget=PagedownWidget(show_preview=True), required=False,
-        help_text="What should the participants know before attending your session?")
-    content_urls = forms.CharField(
-        widget=PagedownWidget(show_preview=True), required=False,
-        help_text="Links to your session like GitHub repo, Blog, Slideshare etc ...")
-    speaker_info = forms.CharField(
-        widget=PagedownWidget(show_preview=True), required=False,
-        help_text="Say something about yourself, work etc...")
-    speaker_links = forms.CharField(
-        widget=PagedownWidget(show_preview=True), required=False,
-        help_text="Links to your previous work like Blog, Open Source Contributions etc ...")
+    # prerequisites = forms.CharField(
+    #     widget=PagedownWidget(show_preview=True), required=False,
+    #     help_text="What should the participants know before attending your session?")
+    # content_urls = forms.CharField(
+    #     widget=PagedownWidget(show_preview=True), required=False,
+    #     help_text="Links to your session like GitHub repo, Blog, Slideshare etc ...")
+    # speaker_info = forms.CharField(
+    #     widget=PagedownWidget(show_preview=True), required=False,
+    #     help_text="Say something about yourself, work etc...")
+    # speaker_links = forms.CharField(
+    #     widget=PagedownWidget(show_preview=True), required=False,
+    #     help_text="Links to your previous work like Blog, Open Source Contributions etc ...")
 
     def __init__(self, conference, action="edit", *args, **kwargs):
         super(ProposalForm, self).__init__(*args, **kwargs)
@@ -119,11 +119,11 @@ class ProposalForm(forms.Form):
         form = ProposalForm(proposal.conference,
                             initial={'title': proposal.title,
                                      'description': proposal.description,
-                                     'target_audience': proposal.target_audience,
-                                     'prerequisites': proposal.prerequisites,
-                                     'content_urls': proposal.content_urls,
-                                     'speaker_info': proposal.speaker_info,
-                                     'speaker_links': proposal.speaker_links,
+                                     # 'target_audience': proposal.target_audience,
+                                     # 'prerequisites': proposal.prerequisites,
+                                     # 'content_urls': proposal.content_urls,
+                                     # 'speaker_info': proposal.speaker_info,
+                                     # 'speaker_links': proposal.speaker_links,
                                      'status': proposal.status,
                                      'proposal_section': proposal.proposal_section.pk,
                                      'proposal_type': proposal.proposal_type.pk, })

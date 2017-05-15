@@ -180,6 +180,22 @@
 
         </section>
 
+        {% if proposal.get_voter_list %}
+          <section class="col-sm-8 proposal-voters">
+            <div class="proposal-voters--section">
+              <h4 class='heading'><b>Supporters:</b></h4>
+            </div>
+            <table class="table table-borderless">
+                {% for each in proposal.get_voter_list %}
+                  <tr>
+                      <td class="text-muted text-right"><small>{{each.voter__username}}</small></td>
+                      <td>{{each.voter__email}}</td>
+                  </tr>
+                {% endfor %}
+            </table>
+          </section>
+        {% endif %}
+
         <section class="col-sm-3 proposal-meta">
             <table class="table table-borderless">
                 <tr>

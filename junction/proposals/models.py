@@ -69,7 +69,7 @@ class Proposal(TimeAuditModel):
                                          verbose_name="Proposal Section")
     proposal_type = models.ForeignKey(ProposalType,
                                       verbose_name="Proposal Type")
-    author = models.ForeignKey(User, verbose_name="Primary Speaker")
+    author = models.ForeignKey(User, verbose_name="Evangelist")
     title = models.CharField(max_length=255)
     slug = AutoSlugField(max_length=255, populate_from=('title',))
     description = models.TextField(default="")
@@ -170,6 +170,13 @@ class Proposal(TimeAuditModel):
         up_vote_count = votes.get(True, 0)
         down_vote_count = votes.get(False, 0)
         return up_vote_count - down_vote_count
+
+    def get_voter_list(self):
+        """ Show the list of voters """
+        votes = ProposalVote.objects.filter(
+            proposal=self, up_vote=True
+        ).values('voter__username', 'voter__email')
+        return votes
 
     def get_reviewer_votes_count(self):
         """ Show sum of reviewer vote value. """

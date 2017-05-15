@@ -119,9 +119,9 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_VERIFICATION = "none"
 ACCOUNT_EMAIL_SUBJECT_PREFIX = "[{}] ".format(SITE_VARIABLES['site_name'])
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
@@ -222,7 +222,7 @@ SECRET_KEY = os.environ.get(
     'z^bd9lk)o!03n#9e_u87zidd1zt7*^_oc4v6t!@@86vtbu0*&j')
 
 
-ALLOWED_HOSTS = []  # TODO:
+ALLOWED_HOSTS = ['*']  # TODO:
 
 SITE_PROTOCOL = 'http'
 

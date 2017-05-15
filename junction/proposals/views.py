@@ -122,14 +122,15 @@ def create_proposal(request, conference_slug):
         conference=conference,
         title=form.cleaned_data['title'],
         description=form.cleaned_data['description'],
-        target_audience=form.cleaned_data['target_audience'],
-        prerequisites=form.cleaned_data['prerequisites'],
-        content_urls=form.cleaned_data['content_urls'],
-        speaker_info=form.cleaned_data['speaker_info'],
-        speaker_links=form.cleaned_data['speaker_links'],
+        # target_audience=form.cleaned_data['target_audience'],
+        # prerequisites=form.cleaned_data['prerequisites'],
+        # content_urls=form.cleaned_data['content_urls'],
+        # speaker_info=form.cleaned_data['speaker_info'],
+        # speaker_links=form.cleaned_data['speaker_links'],
         status=form.cleaned_data['status'],
         proposal_type_id=form.cleaned_data['proposal_type'],
-        proposal_section_id=form.cleaned_data['proposal_section'])
+        proposal_section_id=form.cleaned_data['proposal_section']
+    )
     host = '{}://{}'.format(settings.SITE_PROTOCOL, request.META.get('HTTP_HOST'))
     send_mail_for_new_proposal(proposal, host)
 
@@ -191,7 +192,7 @@ def detail_proposal(request, conference_slug, slug, hashid=None):
         'is_section_reviewer': is_section_reviewer,
         'can_view_feedback': False,
         'can_vote': permissions.is_proposal_voting_allowed(proposal),
-        'public_voting_setting': public_voting_setting_value
+        'public_voting_setting': public_voting_setting_value,
     }
 
     if proposal.scheduleitem_set.all():
