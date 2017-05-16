@@ -137,7 +137,7 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', ''),
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', ''),
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = SITE_VARIABLES['site_name'] + ' <noreply@pssi.org.in>'
+DEFAULT_FROM_EMAIL = SITE_VARIABLES['site_name'] + ' <noreply@galepartners.com>'
 
 BOOTSTRAP3 = {
     'required_css_class': 'required',
