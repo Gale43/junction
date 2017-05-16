@@ -1,66 +1,53 @@
-{% extends 'base.html' %}
-
-{% load django_markdown %}
-{% load webdesign %}
-{% load static from staticfiles %}
-
-{% block head_title %}Welcome to {{ SITE_INFO.site_name }}{% endblock %}
-{% block og_title %}Welcome to {{ SITE_INFO.site_name }}{% endblock %}
-
-{% block page_classes %}{{ block.super }} homepage{% endblock %}
-{% block breadcrumbs %}{% endblock %}
-{% block header %}
-    <div class="jumbotron text-center" style="background-image: url({% static 'img/bg/home.jpg' %});">
-        <div class="message-wrapper">
-            <div class="message">
-                <div class="inline-block full-width color-secondary transparent-black">
-                    <h1 class="header-font text-bold">
-                        Welcome to {{ SITE_INFO.site_name }}
-                    </h1>
-                    <p>
-                        Manage proposals, reviews, schedule, feedbacks during conferences
-                    </p>
-                </div>
+{% extends 'base.html' %} {% load django_markdown %} {% load webdesign %} {% load static from staticfiles %} {% block head_title %}Welcome to {{ SITE_INFO.site_name }}{% endblock %} {% block og_title %}Welcome to {{ SITE_INFO.site_name }}{% endblock %}
+{% block page_classes %}{{ block.super }} homepage{% endblock %} {% block breadcrumbs %}{% endblock %} {% block header %}
+<div class="jumbotron text-center" style="background-image: url({% static 'img/bg/home.jpg' %});">
+    <div class="message-wrapper">
+        <div class="message">
+            <div class="inline-block full-width color-secondary transparent-black">
+                <h1 class="header-font text-bold">
+                    Welcome to {{ SITE_INFO.site_name }}
+                </h1>
+                <p>
+                    Manage proposals, reviews, schedule, feedbacks during events
+                </p>
             </div>
         </div>
     </div>
-{% endblock %}
+</div>
+{% endblock %} {% block content %}
+<section class="conference-list" id="conference-list">
+    <h2 class="heading">
+        <i class="fa fa-microphone space-on-right"></i> Events
+    </h2>
 
-{% block content %}
-    <section class="conference-list" id="conference-list">
-        <h2 class="heading">
-            <i class="fa fa-microphone space-on-right"></i>
-            Conferences
-        </h2>
-
-        {% if not conferences %}
-            <p> No conferences found. </p>
-        {% endif %}
-
-        {% for conference in conferences %}
-            <div class="conference-item">
-                <h3>
-                    <a href="{% url 'proposals-list' conference.slug %}"> {{ conference.name }}</a>
-                </h3>
-                <p class="meta text-muted">
-                    <span class="align-middle">
+    {% if not conferences %}
+    <p> No events found. </p>
+    {% endif %} {% for conference in conferences %}
+    <div class="conference-item">
+        <h3>
+            <a href="{% url 'proposals-list' conference.slug %}"> {{ conference.name }}</a>
+        </h3>
+        <p class="meta text-muted">
+            <span class="align-middle">
                         {{ conference.duration_display }}
                     </span>
-                    <span class="status status-{{conference.status}}">
+            <span class="status status-{{conference.status}}">
                         {{ conference.get_status_display }}
                     </span>
-                </p>
-            </div>
-        {% endfor %}
-    </section>
-    <script>
+        </p>
+    </div>
+    {% endfor %}
+</section>
+<script>
     $(function() {
-        $('.btn-conference-list').click(function(e){
+        $('.btn-conference-list').click(function(e) {
             e.preventDefault();
-            var targetOffset = $('#conference-list').offset().top - $('.navbar-header').outerHeight()*1.7;
-            $('html,body').animate({scrollTop: targetOffset}, 500);
+            var targetOffset = $('#conference-list').offset().top - $('.navbar-header').outerHeight() * 1.7;
+            $('html,body').animate({
+                scrollTop: targetOffset
+            }, 500);
             return false;
         });
     });
-    </script>
+</script>
 {% endblock %}
