@@ -31,7 +31,7 @@ SITE_VARIABLES = {
     'site_description': 'HackIt is a software to manage proposals, reviews, schedule, feedback for events at GALE.',
     'google_analytics_id': os.environ.get('GOOGLE_ANALYTICS_ID', None),
     'site_url': SITE_URL,
-    'footer': '&copy; {} • Python Software Society of India ♥ GALE'.format(dt.year),
+    'footer': '&copy; {} • GALE'.format(dt.year),
     # Enables Facebook sharing of proposals
     'facebook_app_id': os.environ.get('FACEBOOK_APP_ID', None),
 }
