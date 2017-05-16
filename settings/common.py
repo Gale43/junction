@@ -27,11 +27,11 @@ SITE_URL = os.environ.get('SITE_URL', '').rstrip('/')
 # These are available in the template as SITE_INFO.<title>
 dt = datetime.datetime.now()
 SITE_VARIABLES = {
-    'site_name': os.environ.get('SITE_NAME', 'Junction'),
-    'site_description': 'Junction is a software to manage proposals, reviews, schedule, feedback during conference.',
+    'site_name': os.environ.get('SITE_NAME', 'HackIt'),
+    'site_description': 'HackIt is a software to manage proposals, reviews, schedule, feedback for events at GALE.',
     'google_analytics_id': os.environ.get('GOOGLE_ANALYTICS_ID', None),
     'site_url': SITE_URL,
-    'footer': '&copy; {} • Python Software Society of India'.format(dt.year),
+    'footer': '&copy; {} • Python Software Society of India ♥ GALE'.format(dt.year),
     # Enables Facebook sharing of proposals
     'facebook_app_id': os.environ.get('FACEBOOK_APP_ID', None),
 }
