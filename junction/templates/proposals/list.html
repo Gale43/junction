@@ -23,7 +23,7 @@
 {% block navbar_logo %}
     {% if conference.logo %}
     <a href="{% url "conference-detail" conference.slug %}">
-        <img src="{{ conference.logo.url }}">
+        <img src="{{ conference.logo.url }}" style="width:100%;">
     </a>
     {% else %}
         <a href="#" class="navbar-brand">{{ conference.name }}</a>
