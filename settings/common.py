@@ -222,7 +222,7 @@ ALLOWED_HOSTS = ['*']  # TODO:
 
 SITE_PROTOCOL = 'http'
 
-MARKDOWN_EXTENSIONS = ['linkify']
+# MARKDOWN_EXTENSIONS = ['linkify']
 
 
 # twitter settings
