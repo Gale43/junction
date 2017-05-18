@@ -18,6 +18,8 @@
       <div class="form-container space-2-bottom {% if form.errors %} has-error {% endif %}">
         <h2 class="text-center">{% trans "Sign In" %}</h2>
         <div class="pad-2 push-half-top push-2-bottom">
+
+          {% comment %}
           {% get_providers as socialaccount_providers %}
           {% if socialaccount_providers  %}
             <p>
@@ -37,6 +39,12 @@
           {% else %}
             <p>{% blocktrans %}If you have not created an account yet, then please <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
           {% endif %}
+          {% endcomment %}
+
+          <div>
+            Don't have an account? Please <a href="{{ signup_url }}">sign up</a>.
+          </div>
+          <hr>
 
           <form class="form-horizontal login-form"
                 method="POST" action="{% url 'account_login' %}">
@@ -79,10 +87,6 @@
               </div>
             </div>
           </form>
-        </div>
-        <hr>
-        <div>
-          Don't have an account? Please <a href="{{ signup_url }}">sign up</a>.
         </div>
       </div>
     </div>
