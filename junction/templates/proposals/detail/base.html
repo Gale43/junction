@@ -212,12 +212,14 @@
                         <td> {{ proposal.get_status_display }} </td>
                     </tr>
                 {% endif %}
-{#                 <tr>
+                {% comment %}
+                  <tr>
                     <td class="text-muted text-right"><small>Target Audience:</small></td>
                     <td>
                         {{ proposal.get_target_audience_display }}
                     </td>
-                </tr> #}
+                  </tr>
+                {% endcomment %}
                 <tr>
                     <td class="text-muted text-right"><small>Last Updated:</small></td>
                     <td>
