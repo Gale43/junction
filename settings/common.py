@@ -205,12 +205,17 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = join(ROOT_DIR, '.media')
 MEDIA_URL = '/m/'
 
+postgres_db = {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'hackit',
+    'USER': 'hackit',
+    'PASSWORD': 'hackit',
+    'HOST': 'database',
+    'PORT': 5432,
+}
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(ROOT_DIR, 'db.sqlite3'),
-    }
+    'default': postgres_db
 }
 
 SECRET_KEY = os.environ.get(

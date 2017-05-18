@@ -8,6 +8,16 @@ services:
       - "6380:6379"
     privileged: true
 
+  database:
+    image: postgres:9.5.2
+    volumes:
+      - psql-data:/var/lib/postgresql/data
+    privileged: true
+    environment:
+      - POSTGRES_DB=hackit
+      - POSTGRES_PASSWORD=hackit
+      - POSTGRES_USER=hackit
+
   web:
     build: .
     command: "uwsgi --ini uwsgi.ini --wsgi-file wsgi.py --chdir /srv/"
@@ -17,6 +27,7 @@ services:
      - .:/srv/
     links:
      - redis:redis
+     - database:database
     privileged: true
 
   celery:
@@ -27,8 +38,11 @@ services:
     links:
      - redis:redis
      - web:web
+     - database:database
     environment:
      - C_FORCE_ROOT=true
 volumes:
   redis-data:
+    driver: local
+  psql-data:
     driver: local
