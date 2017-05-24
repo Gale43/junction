@@ -35,13 +35,13 @@ def create_proposal_comment(request, conference_slug, proposal_slug):
         if private and not has_perm:
             raise Http404()
 
-        proposal_comment = ProposalComment.objects.create(
+        ProposalComment.objects.create(
             proposal=proposal, comment=comment,
             private=private, reviewer=reviewer, commenter=request.user
         )
-        host = '{}://{}'.format(settings.SITE_PROTOCOL,
-                                request.META.get('HTTP_HOST'))
-        send_mail_for_new_comment(proposal_comment, host)
+        # host = '{}://{}'.format(settings.SITE_PROTOCOL,
+        #                         request.META.get('HTTP_HOST'))
+        # send_mail_for_new_comment(proposal_comment, host)
 
     redirect_url = reverse('proposal-detail',
                            args=[conference.slug, proposal.slug])
