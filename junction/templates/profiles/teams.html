@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% load django_markdown %}
+{% load static from staticfiles %}
+{% load django_bootstrap_breadcrumbs %}
+{% load proposal_filters %}
+
+{% block head_title %} Dashboard {% endblock %}
+{% block og_title %} Dashboard {% endblock %}
+{% block og_description %} Dashboard {% endblock %}
+{% block page_description %} Dashboard {% endblock %}
+
+{% block endhead %}
+    <!-- Custom CSS -->
+    <link href="{% static 'css/list.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% breadcrumb "Dashboard" "user-proposals-list" %}
+{% endblock %}
+
+{% block navbar_logo %}
+        <a href="#" class="navbar-brand">Teams</a>
+{% endblock navbar_logo %}
+
+
+{% block content %}
+<section class="content custom-container proposal-list">
+    <div class="push-4-bottom push-1-top">
+        <div class="row">
+            <h1>Create Team</h1>
+            <hr>
+            <br>
+            <div class="form-container space-2-bottom {% if form.errors %} has-error {% endif %}">
+
+                <form method="POST" class="post-form">{% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="form-group">
+                        <button type="submit" class="save btn btn-default">Save</button>
+                    </div>
+                    {% if errors %}
+                    <div class="form-group">
+                        {{errors}}
+                    </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content custom-container proposal-list">
+    <div class="push-4-bottom push-1-top">
+        <div class="row">
+            <h1>Your Teams</h1>
+            <hr>
+            <br>
+            {% if teams %}
+                <h3><a href="{% url 'proposals-list' conference|slugify %}">{{ conference }}</a></h3>
+                {% for team in teams %}
+        <div class="row user-proposals proposal" >
+            <div class="col-xs-12" >
+                <div class="proposal-list-content">
+                    <div class="col-sm-1 hidden-xs proposal-stats">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h4 class="clear-margin">{{ team.get_members_count }}</h4>
+                                <small class="text-muted"> Members </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-11 col-xs-12">
+                        <h3 class="proposal--title">
+                            <a href='{{ proposal.get_absolute_url }}'>{{ forloop.counter}}. {{ team.name|capfirst }}</a>
+                        </h3>
+                        <div class="clearfix">
+                            <div class="pull-left">
+
+                            {%for member in team.members.all%}
+                            <h6>
+                                {% if member.get_full_name %}
+                                    {{ member.get_full_name }} (~{{ memberusername }})
+                                {% else %}
+                                    {{ member.username }}
+                                {% endif %}
+                            </h6>
+                            {% endfor %}
+                            </div>
+
+                            <small class="pull-right">
+                                <i class="fa fa-user"></i> <b>
+                                    {% if team.proposal.author.get_full_name %}
+                                        {{ team.proposal.author.get_full_name }} (~{{ team.proposal.author.username }})
+                                    {% else %}
+                                        {{ team.proposal.author.username }}
+                                    {% endif %}
+                                </b> |&nbsp;
+                                <i class="fa fa-calendar"></i> <b>{{ team.proposal.created_at|date:"d M, Y" }}</b>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+    {% else %}
+            <p>No proposals. </p>
+    {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

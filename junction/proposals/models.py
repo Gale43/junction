@@ -349,3 +349,19 @@ class ProposalCommentVote(TimeAuditModel):
 
     class Meta:
         unique_together = ("proposal_comment", "voter")
+
+
+@python_2_unicode_compatible
+class Team(models.Model):
+    """
+        Model to store team nformatino for proposals.
+    """
+    name = models.CharField(max_length=255)
+    proposal = models.ForeignKey('Proposal')
+    members = models.ManyToManyField(User)
+
+    def get_members_count(self):
+        return self.members.all().count()
+
+    def __str__(self):
+        return self.name

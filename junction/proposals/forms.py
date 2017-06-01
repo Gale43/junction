@@ -16,7 +16,7 @@ from junction.base.constants import (
     ProposalTargetAudience,
     ProposalVotesFilter
 )
-from junction.proposals.models import ProposalSection, ProposalSectionReviewerVoteValue, ProposalType
+from junction.proposals.models import ProposalSection, ProposalSectionReviewerVoteValue, ProposalType, Team
 
 
 def _get_proposal_section_choices(conference, action="edit"):
@@ -215,3 +215,10 @@ class ProposalVotesFilterForm(ProposalTypesChoices):
 
         for name, field in list(self.fields.items()):
             field.choices.insert(0, ('all', 'All'))
+
+
+class TeamForm(forms.ModelForm):
+
+    class Meta:
+        model = Team
+        fields = ['name', 'proposal', 'members']

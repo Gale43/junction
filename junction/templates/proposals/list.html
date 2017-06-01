@@ -88,6 +88,7 @@
         <div class="row">
         {% if user.is_authenticated %}
             <a class='btn btn-primary' href="{% url 'profiles:dashboard' %}">My Proposals</a>
+            <a class='btn btn-primary' href="{% url 'proposal-team' conference.slug %}">Register Team</a>
         {% endif %}
 
         {% if is_filtered %}

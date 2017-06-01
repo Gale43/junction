@@ -21,8 +21,8 @@ from junction.conferences.models import Conference
 from junction.feedback import permissions as feedback_permission
 
 from . import permissions, serializers
-from .forms import ProposalCommentForm, ProposalForm, ProposalReviewForm, ProposalsToReviewForm
-from .models import Proposal, ProposalComment, ProposalSectionReviewer, ProposalVote
+from .forms import ProposalCommentForm, ProposalForm, ProposalReviewForm, ProposalsToReviewForm, TeamForm
+from .models import Proposal, ProposalComment, ProposalSectionReviewer, ProposalVote, Team
 from .services import send_mail_for_new_proposal, send_mail_for_proposal_content
 
 
@@ -411,3 +411,22 @@ def delete_proposal(request, conference_slug, slug):
     elif request.method == 'POST':
         proposal.delete()
         return HttpResponseRedirect(reverse('proposals-list', args=[conference.slug]))
+
+
+@login_required
+def team(request, conference_slug):
+    errors = None
+    if request.method == 'POST':
+        team_form = TeamForm(request.POST)
+        if team_form.is_valid():
+            team_form.save()
+        else:
+            errors = team_form.errors
+    conference = get_object_or_404(Conference, slug=conference_slug)
+    teams = Team.objects.filter(proposal__conference=conference)
+    return render(request, 'profiles/teams.html', {
+        'teams': teams,
+        'conference': conference,
+        'form': TeamForm(),
+        'errors': errors,
+    })

@@ -21,6 +21,7 @@ urlpatterns = [
     # proposal urls
     url(r'^$', views.list_proposals, name='proposals-list'),
     url(r'^create/$', views.create_proposal, name='proposal-create'),
+    url(r'^team/$', views.team, name='proposal-team'),
     url(r'^to_review/$', views.proposals_to_review, name='proposals-to-review'),
     url(r'^second_phase_voting/$', dashboard.second_phase_voting, name='second-phase-voting'),
     url(r'^(?P<slug>[\w-]+)/$', views.detail_proposal, name='proposal-detail'),

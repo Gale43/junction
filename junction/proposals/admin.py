@@ -124,3 +124,6 @@ class ProposalCommentVoteAdmin(TimeAuditAdmin):
             return qs
         moderators = service.list_conference_moderator(user=request.user)
         return qs.filter(proposal_comment__proposal__conference__in=[m.conference for m in moderators])
+
+
+admin.site.register(models.Team)
