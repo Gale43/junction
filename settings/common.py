@@ -75,6 +75,9 @@ THIRD_PARTY_APPS = (
 
     'rest_framework',
     'simple_history',
+
+    'dal',
+    'dal_select2',
 )
 
 OUR_APPS = (

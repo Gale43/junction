@@ -19,6 +19,7 @@ from junction.schedule import views as schedule_views
 from junction.schedule.views import non_proposal_schedule_item_view
 
 from .views import HomePageView
+from junction.proposals.views import UserTeamAutocomplete
 
 router = routers.DefaultRouter()
 
@@ -39,6 +40,14 @@ reference to them here.
 urlpatterns = [
 
     url(r'^$', HomePageView.as_view(), name="page-home"),
+
+    # Many to Many autocomplete widget
+    url(
+        r'^user-team-autocomplete/$',
+        UserTeamAutocomplete.as_view(),
+        name='user-team-autocomplete',
+    ),
+
 
     # Django Admin
     url(r'^nimda/', include(admin.site.urls)),

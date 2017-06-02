@@ -6,6 +6,7 @@ from django import forms
 from django.utils.safestring import mark_safe
 from django.utils.timezone import now
 from pagedown.widgets import PagedownWidget
+from dal import autocomplete
 
 # Junction Stuff
 from junction.base.constants import (
@@ -222,3 +223,6 @@ class TeamForm(forms.ModelForm):
     class Meta:
         model = Team
         fields = ['name', 'proposal', 'members']
+        widgets = dict(
+            members=autocomplete.ModelSelect2Multiple(url='user-team-autocomplete')
+        )
