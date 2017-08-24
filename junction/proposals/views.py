@@ -440,7 +440,7 @@ class UserTeamAutocomplete(autocomplete.Select2QuerySetView):
         if not self.request.user.is_authenticated():
             return User.objects.none()
 
-        qs = User.objects.filter(team__isnull=True)
+        qs = User.objects.all()
 
         if self.q:
             qs = qs.filter(email__istartswith=self.q)
