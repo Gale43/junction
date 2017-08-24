@@ -222,7 +222,7 @@ class TeamForm(forms.ModelForm):
 
     class Meta:
         model = Team
-        fields = ['name', 'proposal', 'members']
+        fields = ['name', 'members']
         widgets = dict(
             members=autocomplete.ModelSelect2Multiple(url='user-team-autocomplete')
         )
