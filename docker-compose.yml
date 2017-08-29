@@ -4,8 +4,6 @@ services:
     image: redis:2.8.17
     volumes:
       - redis-data:/data/
-    ports:
-      - "6380:6379"
     privileged: true
 
   database:
@@ -22,7 +20,7 @@ services:
     build: .
     command: "uwsgi --ini uwsgi.ini --wsgi-file wsgi.py --chdir /srv/"
     ports:
-      - 80:8001
+      - 8001:8001
     volumes:
      - .:/srv/
     links:

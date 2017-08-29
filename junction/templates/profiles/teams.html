@@ -69,6 +69,7 @@
                     <div class="col-sm-11 col-xs-12">
                         <h3 class="proposal--title">
                             <a href='{{ proposal.get_absolute_url }}'>{{ forloop.counter}}. {{ team.name|capfirst }}</a>
+			    <small>{{team.proposal.title|capfirst}}</small>
                         </h3>
                         <div class="clearfix">
                             <div class="pull-left">
