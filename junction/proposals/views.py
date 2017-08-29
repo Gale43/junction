@@ -426,10 +426,13 @@ def team(request, conference_slug):
             errors = team_form.errors
     conference = get_object_or_404(Conference, slug=conference_slug)
     teams = Team.objects.filter(proposal__conference=conference)
+    form = TeamForm(initial={'conference': conference.pk})
+    form.proposal.queryset = Proposal.objects.filter(conference=conference)
+
     return render(request, 'profiles/teams.html', {
         'teams': teams,
         'conference': conference,
-        'form': TeamForm(),
+        'form': form,
         'errors': errors,
     })
 

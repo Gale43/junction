@@ -17,7 +17,8 @@ from junction.base.constants import (
     ProposalTargetAudience,
     ProposalVotesFilter
 )
-from junction.proposals.models import ProposalSection, ProposalSectionReviewerVoteValue, ProposalType, Team
+from junction.proposals.models import Proposal, ProposalSection, ProposalSectionReviewerVoteValue, ProposalType, Team
+from junction.conferences.models import Conference
 
 
 def _get_proposal_section_choices(conference, action="edit"):
@@ -219,10 +220,18 @@ class ProposalVotesFilterForm(ProposalTypesChoices):
 
 
 class TeamForm(forms.ModelForm):
+    conference = forms.ModelChoiceField(
+        queryset=Conference.objects.all(),
+        widget=forms.MultipleHiddenInput()
+    )
+
+    proposal = forms.ModelChoiceField(
+        queryset=Proposal.objects.all()
+    )
 
     class Meta:
         model = Team
-        fields = ['name', 'members']
+        fields = ['name', 'members', 'conference', 'proposal']
         widgets = dict(
             members=autocomplete.ModelSelect2Multiple(url='user-team-autocomplete')
         )

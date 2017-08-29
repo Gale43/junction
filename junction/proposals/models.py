@@ -351,6 +351,11 @@ class ProposalCommentVote(TimeAuditModel):
         unique_together = ("proposal_comment", "voter")
 
 
+def get_conference_from_proposals(proposal):
+    if proposal:
+        return proposal.conference
+
+
 @python_2_unicode_compatible
 class Team(models.Model):
     """
@@ -359,6 +364,7 @@ class Team(models.Model):
     name = models.CharField(max_length=255)
     proposal = models.ForeignKey('Proposal', null=True)
     members = models.ManyToManyField(User)
+    conference = models.ForeignKey('Conference', null=True, default=get_conference_from_proposals)
 
     def get_members_count(self):
         return self.members.all().count()
