@@ -354,10 +354,10 @@ class ProposalCommentVote(TimeAuditModel):
 @python_2_unicode_compatible
 class Team(models.Model):
     """
-        Model to store team nformatino for proposals.
+        Model to store team informatino for proposals.
     """
     name = models.CharField(max_length=255)
-    proposal = models.ForeignKey('Proposal')
+    proposal = models.ForeignKey('Proposal', null=True)
     members = models.ManyToManyField(User)
 
     def get_members_count(self):
