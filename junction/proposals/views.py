@@ -417,15 +417,16 @@ def delete_proposal(request, conference_slug, slug):
 
 @login_required
 def team(request, conference_slug):
-    errors = None
+    errors = []
     if request.method == 'POST':
         team_form = TeamForm(request.POST)
         if team_form.is_valid():
             team_form.save()
         else:
             errors = team_form.errors
+
     conference = get_object_or_404(Conference, slug=conference_slug)
-    teams = Team.objects.filter(proposal__conference=conference)
+    teams = Team.objects.filter(conference=conference)
     form = TeamForm(initial={'conference': conference.pk})
     form.fields['proposal'].queryset = Proposal.objects.filter(conference=conference)
 

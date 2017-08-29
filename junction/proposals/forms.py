@@ -221,12 +221,14 @@ class ProposalVotesFilterForm(ProposalTypesChoices):
 
 class TeamForm(forms.ModelForm):
 
-    def __init__(self, *args, **kwargs):
-        super(TeamForm, self).__init__(*args, **kwargs)
-	self.fields['conference'].widget = forms.MultipleHiddenInput()
+    conference = forms.ModelChoiceField(
+        queryset=Conference.objects.all(),
+        widget=forms.HiddenInput()
+    )
 
     proposal = forms.ModelChoiceField(
-        queryset=Proposal.objects.all()
+        queryset=Proposal.objects.all(),
+        required=False
     )
 
     class Meta:
