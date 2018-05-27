@@ -27,8 +27,8 @@ SITE_URL = os.environ.get('SITE_URL', '').rstrip('/')
 # These are available in the template as SITE_INFO.<title>
 dt = datetime.datetime.now()
 SITE_VARIABLES = {
-    'site_name': os.environ.get('SITE_NAME', 'HackIt'),
-    'site_description': 'HackIt is a software to manage proposals, reviews, schedule, feedback for events at GALE.',
+    'site_name': os.environ.get('SITE_NAME', 'HackIT'),
+    'site_description': 'HackIT is a software to manage proposals, reviews, schedule, feedback for events at GALE.',
     'google_analytics_id': os.environ.get('GOOGLE_ANALYTICS_ID', None),
     'site_url': SITE_URL,
     'footer': '&copy; {} • GALE'.format(dt.year),
