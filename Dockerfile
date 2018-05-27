@@ -1,7 +1,9 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Mevin Babu "mevin.chirayath@galepartners.com"
 
-RUN apt-get update && apt-get -y upgrade && apt-get install -y git python2.7 python-pip python-dev postgresql-server-dev-all
+RUN apt-get update
+RUN apt-get -y upgrade
+RUN apt-get install -y git python2.7 python-pip python-dev postgresql-server-dev-all
 ADD requirements.txt /srv/requirements.txt
 ADD requirements-dev.txt /srv/requirements-dev.txt
 WORKDIR /srv/
