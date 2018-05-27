@@ -10726,15 +10726,15 @@ textarea.form-container input[type=password] {
 }
 
 .homepage .message-wrapper {
-    display: table;
+/*    display: table;
     width: 100%;
-    height: 100%;
+    height: 100%;*/
 }
 
 .homepage .message {
-    vertical-align: bottom;
+/*    vertical-align: bottom;
     padding-bottom: 3em;
-    display: table-cell;
+    display: table-cell;*/
 }
 
 .page-proposals .proposal--title {
