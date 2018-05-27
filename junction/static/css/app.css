@@ -10921,3 +10921,8 @@ textarea.review-form select {
 .dropdown {
     margin-left: 10px;
 }
+
+
+.navbar-wrapper, .navbar .navbar-default {
+    height: 60px;
+}
