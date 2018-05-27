@@ -5009,7 +5009,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 
 .navbar {
     position: relative;
-    min-height: 75px;
+    min-height: 60px;
     margin-bottom: 20px;
     border: 1px solid transparent;
 }
@@ -5134,7 +5134,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
     padding: 27.5px 15px;
     font-size: 18px;
     line-height: 20px;
-    height: 75px;
+    height: 60px;
 }
 
 .navbar-brand:hover,
