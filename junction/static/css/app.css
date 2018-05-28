@@ -1401,14 +1401,14 @@ textarea {
 }
 
 a {
-    color: #2066C5;
+    color: #3d4ff4;
     text-decoration: none;
 }
 
 a:hover,
 a:focus {
-    color: #154483;
-    text-decoration: underline;
+    color: #ff651c;
+    text-decoration: none;
 }
 
 a:focus {
@@ -1678,6 +1678,8 @@ mark,
 
 .text-muted {
     color: #777777;
+    font-size: 12px;
+    margin: -10px 0px 10px;
 }
 
 .text-primary {
@@ -10551,7 +10553,7 @@ body {
 }
 
 footer {
-    padding: 20px 0;
+    padding: 10px 0;
     background-color: #000000;
     border-top: 1px solid #000000;
     border-bottom: 1px solid #000000;
