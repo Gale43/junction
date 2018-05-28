@@ -5378,7 +5378,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 }
 
 .navbar-default {
-    background-color: #fff;
+    background-color: #3d4ff4;
     border-color: rgba(0, 0, 0, 0.075);
     background-position: center center;
     min-height: 300px;
@@ -5933,7 +5933,7 @@ a.badge:focus {
 .jumbotron {
     padding-top: 30px;
     padding-bottom: 30px;
-    margin-bottom: 30px;
+    /*margin-bottom: 30px;*/
     color: inherit;
     background-color: #eeeeee;
 }
@@ -10694,7 +10694,7 @@ textarea.form-container input[type=password] {
 .homepage .jumbotron {
     height: 300px;
     padding-bottom: 0em;
-    margin-top: -65px;
+    margin-top: -60px;
     background-position: center center;
 }
 
