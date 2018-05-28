@@ -12,4 +12,4 @@ RUN pip install -U pip
 RUN pip install -r /srv/requirements.txt
 #RUN rm -rf /usr/local/lib/python2.7/dist-packages/requests
 RUN pip install -r /srv/requirements-dev.txt
-RUN pip install uwsgi==2.0.0
+RUN pip install uwsgi

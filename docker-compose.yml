@@ -28,17 +28,6 @@ services:
      - database:database
     privileged: true
 
-  celery:
-    image: junction_web
-    command: celery worker -A junction -l info
-    volumes:
-     - .:/srv/
-    links:
-     - redis:redis
-     - web:web
-     - database:database
-    environment:
-     - C_FORCE_ROOT=true
 volumes:
   redis-data:
     driver: local
