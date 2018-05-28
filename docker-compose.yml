@@ -18,11 +18,14 @@ services:
 
   web:
     build: .
-    command: "uwsgi --ini uwsgi.ini --wsgi-file wsgi.py --chdir /srv/"
+    #command: "uwsgi --ini uwsgi.ini --wsgi-file wsgi.py --chdir /srv/"
+    command: "tail -f /dev/null"
     ports:
       - 8001:8001
     volumes:
      - .:/srv/
+     - app-python-site-packages:/usr/local/lib/python2.7/site-packages
+     - app-usr-local-bin:/usr/local/bin
     links:
      - redis:redis
      - database:database
@@ -32,4 +35,8 @@ volumes:
   redis-data:
     driver: local
   psql-data:
+    driver: local
+  app-python-site-packages:
+    driver: local
+  app-usr-local-bin:
     driver: local
