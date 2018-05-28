@@ -74,9 +74,7 @@
 
     <!-- Navigation -->
     <div class="navbar-wrapper">
-        <nav class="navbar navbar-default" role="navigation"
-            style="background-image: url({% block navbar_logo %}/static/img/bg/hackathon_IT_2018.png{% endblock navbar_logo %});"
-        >
+        <nav class="navbar navbar-default" role="navigation" style="{% block navbar_bg %}min-height=60px;{% endblock navbar_bg %}">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">

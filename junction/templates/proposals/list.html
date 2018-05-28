@@ -20,10 +20,10 @@
     {% breadcrumb "Proposals" "proposals-list" conference.slug %}
 {% endblock %}
 
+{% block navbar_bg %}background-image: url({{ conference.logo.url }});{% endblock navbar_bg %}
+
 {% block navbar_logo %}
-    {% if conference.logo %}
-        {{ conference.logo.url }}
-    {% else %}
+    {% if not conference.logo %}
         <a href="#" class="navbar-brand">{{ conference.name }}</a>
     {% endif %}
 {% endblock navbar_logo %}
