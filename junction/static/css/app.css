@@ -5381,6 +5381,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
     background-color: #fff;
     border-color: rgba(0, 0, 0, 0.075);
     background-position: center center;
+    min-height: 300px;
 }
 
 .navbar-default .navbar-brand {
