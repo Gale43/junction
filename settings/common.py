@@ -258,7 +258,7 @@ ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'http'
 
 SAML2_AUTH = {
     # Required setting
-    'METADATA_AUTO_CONF_URL': '[The auto(dynamic) metadata configuration URL of SAML2]',
+    'METADATA_AUTO_CONF_URL': 'https://galepartners.okta.com/app/exk18ubkwl31WQEkx2p7/sso/saml/metadata',
 
     # Optional settings below
     # Custom target redirect URL after the user get logged in. Default to /admin if not set.
