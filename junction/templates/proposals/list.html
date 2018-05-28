@@ -22,9 +22,7 @@
 
 {% block navbar_logo %}
     {% if conference.logo %}
-    <a href="{% url "conference-detail" conference.slug %}">
-        <img src="{{ conference.logo.url }}" style="width:100%;">
-    </a>
+        {{ conference.logo.url }}
     {% else %}
         <a href="#" class="navbar-brand">{{ conference.name }}</a>
     {% endif %}
@@ -62,7 +60,7 @@
                         Reviewer Votes Dashboard
                     </a>
                 {% endif %}
-
+                <br/>
             </div>
         </div>
 
@@ -86,7 +84,7 @@
         </div>
         <hr>
         <a name="proposals"></a>
-        <div class="row">
+        <div class="row" style="padding-left: 15px;">
         {% if conference.is_accepting_proposals %}
             <a class='btn btn-primary' href="{% url 'proposal-create' conference.slug %}">
                 <i class="fa fa-plus-square-o"></i> New Proposal
