@@ -78,6 +78,7 @@ THIRD_PARTY_APPS = (
 
     'dal',
     'dal_select2',
+    'django_saml2_auth',
 )
 
 OUR_APPS = (
@@ -253,4 +254,26 @@ QR_CODES_DIR = ROOT_DIR + '/qr_files'
 BROKER_URL = os.environ.get("BROKER_URL", "redis://redis:6379/0")
 CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND", 'redis://redis:6379/0')
 
-ACCOUNT_DEFAULT_HTTP_PROTOCOL='http'
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'http'
+
+SAML2_AUTH = {
+    # Required setting
+    'METADATA_AUTO_CONF_URL': '[The auto(dynamic) metadata configuration URL of SAML2]',
+
+    # Optional settings below
+    # Custom target redirect URL after the user get logged in. Default to /admin if not set.
+    # This setting will be overwritten if you have parameter ?next= specificed in the login URL.
+    'DEFAULT_NEXT_URL': '/',
+    'NEW_USER_PROFILE': {
+        'USER_GROUPS': [],  # The default group name when a new user logs in
+        'ACTIVE_STATUS': True,  # The default active status for new users
+        'STAFF_STATUS': False,  # The staff status for new users
+        'SUPERUSER_STATUS': False,  # The superuser status for new users
+    },
+    'ATTRIBUTES_MAP': {  # Change Email/UserName/FirstName/LastName to corresponding SAML2 userprofile attributes.
+        'email': 'Email',
+        'username': 'Email',
+        'first_name': 'FirstName',
+        'last_name': 'LastName',
+    },
+}

@@ -10,6 +10,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic.base import RedirectView, TemplateView
 from rest_framework import routers
+import django_saml2_auth.views
 
 # Junction Stuff
 from junction.conferences import views as conference_views
@@ -38,6 +39,10 @@ reference to them here.
 
 
 urlpatterns = [
+
+    url(r'^saml2_auth/', include('django_saml2_auth.urls')),
+    url(r'^accounts/login/$', django_saml2_auth.views.signin),
+    url(r'^accounts/logout/$', django_saml2_auth.views.signout),
 
     url(r'^$', HomePageView.as_view(), name="page-home"),
 

@@ -53,7 +53,6 @@ markdown2==2.3.1
 
 # Server
 # ------------------------------------------------
-uwsgi==2.0.0
 
 # Device
 # ------------------------------------------------
@@ -65,3 +64,6 @@ jsonfield==1.0.3
 
 # Autocomplete
 django-autocomplete-light
+
+# Saml Login
+django-saml2-auth==2.2.0
