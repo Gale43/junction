@@ -1401,7 +1401,7 @@ textarea {
 }
 
 a {
-    color: #3d4ff4;
+    color: #050e9e;
     text-decoration: none;
 }
 
@@ -1958,7 +1958,7 @@ pre {
     word-wrap: break-word;
     color: #333333;
     background-color: #f5f5f5;
-    border: 1px solid #3D4FF4;
+    border: 1px solid #050e9e;
     border-radius: 4px;
 }
 
@@ -3144,7 +3144,7 @@ output {
     color: #555555;
     background-color: #fff;
     background-image: none;
-    border: 1px solid #3D4FF4;
+    border: 1px solid #050e9e;
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -3721,7 +3721,7 @@ fieldset[disabled] a.btn {
 .btn-default {
     color: #333;
     background-color: #fff;
-    border-color: #3D4FF4;
+    border-color: #050e9e;
 }
 
 .btn-default:focus,
@@ -3775,7 +3775,7 @@ fieldset[disabled] .btn-default:focus,
 .btn-default[disabled].focus,
 fieldset[disabled] .btn-default.focus {
     background-color: #fff;
-    border-color: #3D4FF4;
+    border-color: #050e9e;
 }
 
 .btn-default .badge {
@@ -4259,7 +4259,7 @@ tbody.collapse.in {
     font-size: 14px;
     text-align: left;
     background-color: #fff;
-    border: 1px solid #3D4FF4;
+    border: 1px solid #050e9e;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -4698,7 +4698,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
     color: #555555;
     text-align: center;
     background-color: #eeeeee;
-    border: 1px solid #3D4FF4;
+    border: 1px solid #050e9e;
     border-radius: 4px;
 }
 
@@ -5383,7 +5383,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 }
 
 .navbar-default {
-    background-color: #3d4ff4;
+    background-color: #050e9e;
     border-color: rgba(0, 0, 0, 0.075);
     background-position: center center;
     min-height: 300px;
@@ -5423,7 +5423,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .navbar-default .navbar-nav>.disabled>a,
 .navbar-default .navbar-nav>.disabled>a:hover,
 .navbar-default .navbar-nav>.disabled>a:focus {
-    color: #3D4FF4;
+    color: #050e9e;
     background-color: transparent;
 }
 
@@ -5470,7 +5470,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
     .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a,
     .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a:focus {
-        color: #3D4FF4;
+        color: #050e9e;
         background-color: transparent;
     }
 }
@@ -5496,7 +5496,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 fieldset[disabled] .navbar-default .btn-link:hover,
 .navbar-default .btn-link[disabled]:focus,
 fieldset[disabled] .navbar-default .btn-link:focus {
-    color: #3D4FF4;
+    color: #050e9e;
 }
 
 .navbar-inverse {
@@ -5635,7 +5635,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .breadcrumb>li+li:before {
     content: "/\00a0";
     padding: 0 5px;
-    color: #3D4FF4;
+    color: #050e9e;
 }
 
 .breadcrumb>.active {
@@ -7307,7 +7307,7 @@ button.close {
     font-size: 14px;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #3D4FF4;
+    border: 1px solid #050e9e;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 6px;
     -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -10581,7 +10581,7 @@ footer {
     color: #555555;
     background-color: #fff;
     background-image: none;
-    border: 1px solid #3D4FF4;
+    border: 1px solid #050e9e;
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -10688,7 +10688,7 @@ textarea.form-container input[type=password] {
     padding: 10px;
     border-radius: 4px;
     margin-top: 10px !important;
-    border: 1px dashed #3D4FF4 !important;
+    border: 1px dashed #050e9e !important;
     background-color: inherit !important;
 }
 
@@ -10872,7 +10872,7 @@ textarea.form-container input[type=password] {
     color: #555555;
     background-color: #fff;
     background-image: none;
-    border: 1px solid #3D4FF4;
+    border: 1px solid #050e9e;
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
