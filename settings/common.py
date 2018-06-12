@@ -250,7 +250,6 @@ EXPLARA_API_TOKEN = "shjbalkfbdskjlbdskljbdskaljfb"
 
 QR_CODES_DIR = ROOT_DIR + '/qr_files'
 
-
 BROKER_URL = os.environ.get("BROKER_URL", "redis://redis:6379/0")
 CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND", 'redis://redis:6379/0')
 
@@ -277,3 +276,9 @@ SAML2_AUTH = {
         'last_name': 'LastName',
     },
 }
+
+USE_ASYNC_FOR_EMAIL = False
+
+USER_SPAM_THRESHOLD = 2
+
+SPAM_MODERATION_ADMINS = []
