@@ -47,13 +47,13 @@ def create_proposal_comment(request, conference_slug, proposal_slug):
             private=private, reviewer=reviewer, commenter=request.user
         )
 
-        host = '{}://{}'.format(settings.SITE_PROTOCOL,
-                                request.META.get('HTTP_HOST'))
+        # host = '{}://{}'.format(settings.SITE_PROTOCOL,
+        #                         request.META.get('HTTP_HOST'))
 
-        if settings.USE_ASYNC_FOR_EMAIL:
-            send_mail_for_new_comment.delay(proposal_comment.id, host)
-        else:
-            send_mail_for_new_comment(proposal_comment.id, host)
+        # if settings.USE_ASYNC_FOR_EMAIL:
+        #     send_mail_for_new_comment.delay(proposal_comment.id, host)
+        # else:
+        #     send_mail_for_new_comment(proposal_comment.id, host)
 
     redirect_url = reverse('proposal-detail',
                            args=[conference.slug, proposal.slug])
